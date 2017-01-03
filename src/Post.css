@@ -1,0 +1,42 @@
+:root {
+  --Post-width: 231px;
+  --Post-height: 307px;
+  --Post-color-height: 215px;
+  --Post-scaling-factor: 2;
+  --Post-font-size: 26px;
+}
+
+.Post {
+  width: calc(var(--Post-width)/var(--Post-scaling-factor));
+  min-height: calc(var(--Post-height)/var(--Post-scaling-factor));
+  box-sizing: border-box;
+  background: #FFFFFF;
+  box-shadow: 2px 2px 4px 0 rgba(0,0,0,0.26);
+  font-family: 'Helvetica Neue', Arial, 'sans-serif';
+  font-weight: bold;
+  font-size: calc(var(--Post-font-size)/var(--Post-scaling-factor));
+  color: #000;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.Post.react-draggable { cursor: grab; }
+.Post.react-draggable.react-draggable-dragging { cursor: grabbing; }
+
+
+.Post .color {
+  width: 100%;
+  height: calc(var(--Post-color-height)/var(--Post-scaling-factor));
+  margin-bottom: calc(9px/var(--Post-scaling-factor));
+}
+
+.Post .text {
+  margin: 0;
+  margin-left: calc(16px/var(--Post-scaling-factor));
+  text-transform: uppercase;
+  text-align: left;
+}
+.Post .text:nth-of-type(2) {
+  font-weight: normal;
+}
