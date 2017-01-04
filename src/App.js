@@ -4,6 +4,7 @@ import FloatingActionButton from 'material-ui/FloatingActionButton';
 import ContentAdd from 'material-ui/svg-icons/content/add';
 import Post from './Post';
 import {ChromePicker} from 'react-color';
+import RaisedButton from 'material-ui/RaisedButton';
 
 import './App.css';
 
@@ -17,7 +18,8 @@ class App extends Component {
         {hex: '#F0CF61', name: 'Scrumbled yellow'},
         {hex: '#F3C9DD', name: 'Innocent pink'}
       ],
-      isColorPickerOpen: false
+      isColorPickerOpen: false,
+      currentColor: '#F0CF61'
     };
     this.colorPickerStyle = {
       position: 'absolute',
@@ -32,9 +34,10 @@ class App extends Component {
       width: '100%',
       height: '100%',
       zIndex: 99998
-    }
+    };
 
     this.handleOverlayClick = this.handleOverlayClick.bind(this); // #1 way to solve issue with undefinied 'this'
+    this.handleAddColorClick = this.handleAddColorClick.bind(this);
   }
 
   handleOverlayClick(e) {
@@ -44,7 +47,19 @@ class App extends Component {
   }
 
   handleAdd = (e) => { // #2 way to solve issue with undefinied 'this' in listener
-    this.setState({isColorPickerOpen: !this.state.isColorPickerOpen});
+    this.setState({isColorPickerOpen: true});
+  }
+
+  handleColorSelection(color) {
+    this.setState({currentColor: color.hex})
+  }
+
+  handleAddColorClick(e) {
+    const color = this.state.currentColor;
+    this.setState({
+      colors: [...this.state.colors, {hex:color, name: 'Foobar'}],
+      isColorPickerOpen: false
+    });
   }
 
   render() {
@@ -56,6 +71,7 @@ class App extends Component {
         <FloatingActionButton
             style={{position: 'absolute', bottom: 20, right: 20}}
             onClick={this.handleAdd}
+            disabled={this.state.isColorPickerOpen}
         >
           <ContentAdd />
         </FloatingActionButton>
@@ -65,7 +81,16 @@ class App extends Component {
                                             onClick={this.handleOverlayClick}
                                           ></div>
                                           <div style={this.colorPickerStyle}>
-                                            <ChromePicker  />
+                                            { /* #3 way to fix 'this' issue on event listener */ }
+                                            <ChromePicker
+                                              onChangeComplete={this.handleColorSelection.bind(this)}
+                                              color={this.state.currentColor} />
+                                            <RaisedButton
+                                              label="Add Color"
+                                              primary={true}
+                                              fullWidth={true}
+                                              style={{marginTop: 10}}
+                                              onClick={this.handleAddColorClick}/>
                                           </div></div> : null }
       </div>
       </MuiThemeProvider>
