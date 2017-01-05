@@ -17,3 +17,7 @@ Most color palette tools only allow up to 5 or 6 colors. Personally I don't have
 ## Design & Implementation decisions
 
 To drag the color cards around I use `react-draggable`. To always have the moving card on top of the others I just increment it's `z-index` value. According to [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/integer) unless you're planning to drag the cards more than 2<sup>15</sup>-1 times you won't have any issue. Either way, when the browser refreshes the cards will have `z-index: 0` but still show up stacking in the order they are defined (default html behavior).
+
+## Third-party Libraries
+
+- [Name That Color library](http://chir.ag/projects/ntc/) by [Chirag Mehta](http://chir.ag/about)

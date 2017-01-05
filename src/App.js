@@ -5,8 +5,8 @@ import ContentAdd from 'material-ui/svg-icons/content/add';
 import Post from './Post';
 import {ChromePicker} from 'react-color';
 import RaisedButton from 'material-ui/RaisedButton';
-
 import './App.css';
+
 
 class App extends Component {
   constructor() {
@@ -19,7 +19,7 @@ class App extends Component {
         {hex: '#F3C9DD', name: 'Innocent pink'}
       ],
       isColorPickerOpen: false,
-      currentColor: '#F0CF61'
+      currentColor: '#61D2F0'
     };
     this.colorPickerStyle = {
       position: 'absolute',
@@ -56,8 +56,9 @@ class App extends Component {
 
   handleAddColorClick(e) {
     const color = this.state.currentColor;
+    const name = window.ntc.name(color)[1];
     this.setState({
-      colors: [...this.state.colors, {hex:color, name: 'Foobar'}],
+      colors: [...this.state.colors, {hex:color, name: name}],
       isColorPickerOpen: false
     });
   }
