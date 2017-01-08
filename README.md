@@ -12,7 +12,14 @@ Most color palette tools only allow up to 5 or 6 colors. Personally I don't have
 
 - Built with `create-react-app`
 - Unlimited colors
-- TODO: Each board is created on-the-fly from it's url
+
+## Todos
+- [ ] Each board is created on-the-fly from it's url
+- [ ] Decide if duplicate colors are allowed
+- [x] Color picker with Add Color button in a single component
+- [ ] ColoPicker should keep the last picked color onClose even if the Add Color button was not pressed
+- [ ] Newly created color should be placed on the top of the board
+- [ ] Rework or design custom full page color picker with swatches or Pantone color grid
 
 ## Design & Implementation decisions
 
