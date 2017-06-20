@@ -24,6 +24,8 @@ class ColorPicker extends React.Component {
       right: 20,
       zIndex: 99999
     };
+    if(this.props.hidden)
+      colorPickerStyle.display = 'none'
     let color = this.props.color;
     return  <div>
 
@@ -34,7 +36,7 @@ class ColorPicker extends React.Component {
                   */ }
                 <ChromePicker
                   color={this.props.color}
-                  onChangeComplete={(c) => { color = c.hex; }}
+                  onChangeComplete={(c) => { color = c.hex; this.props.onColorChange(color); }}
                   />
                 <MuiThemeProvider>
                 <RaisedButton

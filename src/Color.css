@@ -1,0 +1,42 @@
+:root {
+  --Color-width: 231px;
+  --Color-height: 307px;
+  --Color-color-height: 215px;
+  --Color-scaling-factor: 2;
+  --Color-font-size: 26px;
+}
+
+.Color {
+  width: calc(var(--Color-width)/var(--Color-scaling-factor));
+  min-height: calc(var(--Color-height)/var(--Color-scaling-factor));
+  box-sizing: border-box;
+  background: #FFFFFF;
+  box-shadow: 2px 2px 4px 0 rgba(0,0,0,0.26);
+  font-family: 'Helvetica Neue', Arial, 'sans-serif';
+  font-weight: bold;
+  font-size: calc(var(--Color-font-size)/var(--Color-scaling-factor));
+  color: #000;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.Color.react-draggable { cursor: grab; }
+.Color.react-draggable.react-draggable-dragging { cursor: grabbing; }
+
+
+.Color .color {
+  width: 100%;
+  height: calc(var(--Color-color-height)/var(--Color-scaling-factor));
+  margin-bottom: calc(9px/var(--Color-scaling-factor));
+}
+
+.Color .text {
+  margin: 0;
+  margin-left: calc(16px/var(--Color-scaling-factor));
+  text-transform: uppercase;
+  text-align: left;
+}
+.Color .text:nth-of-type(2) {
+  font-weight: normal;
+}
