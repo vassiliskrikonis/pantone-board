@@ -6,23 +6,18 @@ import './AddColor.css';
 import ColorPicker from './ColorPicker';
 
 
-const AddColor = (props) => (
+const AddColor = ({onClick, onOverlayClick, onAddColor, onColorChange, color, disabled}) => (
   <div className="AddColor">
     <MuiThemeProvider>
       <FloatingActionButton
           style={{position: 'absolute', bottom: 20, right: 20}}
-          onClick={props.onClick}
-          disabled={props.disabled}
+          {...{onClick, disabled}}
       >
         <ContentAdd />
       </FloatingActionButton>
     </MuiThemeProvider>
-    <div className="overlay" hidden={!props.disabled} onClick={props.onClick}></div>
-    <ColorPicker
-      color={props.color}
-      onAddColor={props.onAddColor}
-      onColorChange={props.onColorChange} 
-      hidden={!props.disabled} />
+    <div className="overlay" {...{onClick, hidden: !disabled}}></div>
+    <ColorPicker {...{color, onAddColor, onColorChange, hidden: !disabled}} />
   </div>
 )
 
