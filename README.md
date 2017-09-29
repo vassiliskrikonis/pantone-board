@@ -8,6 +8,8 @@ Most color palette tools only allow up to 5 or 6 colors. Personally I don't have
 
 **Disclaimer** I'm not affiliated with Pantone LLC in any way.
 
+I used the Pantone colors listed in https://it.labelpartners.com/pantone_coated_table.html
+
 ## Features
 
 - Built with `create-react-app`
@@ -17,7 +19,7 @@ Most color palette tools only allow up to 5 or 6 colors. Personally I don't have
 - [ ] Each board is created on-the-fly from it's url
 - [ ] Decide if duplicate colors are allowed
 - [x] Color picker with Add Color button in a single component
-- [ ] ColoPicker should keep the last picked color onClose even if the Add Color button was not pressed
+- [ ] ColorPicker should keep the last picked color onClose even if the Add Color button was not pressed
 - [ ] Newly created color should be placed on the top of the board
 - [ ] Rework or design custom full page color picker with swatches or Pantone color grid
 - [ ] On resize, constrain all cards to visible canvas
