@@ -37,7 +37,7 @@ To drag the color cards around I use `react-draggable`. To always have the movin
   </Board>
   <FloatingActionButton />
   <ColorPicker />
-</Board>
+</App>
 ```
 
 `<App>` is where state resides.
