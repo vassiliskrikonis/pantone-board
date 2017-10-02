@@ -7,7 +7,7 @@ import Color from './Color'
  */
 const Board = ({colors}) => (
   <div className="Board">
-    { colors.map( (color, i) => <Color key={i} hex={color} /> ) }
+    { colors.map( ({hex, name}, i) => <Color key={i} {...{hex, name}} /> ) }
   </div>
 )
 

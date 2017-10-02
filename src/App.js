@@ -1,13 +1,19 @@
 import React from 'react'
 import Board from './Board'
 import AddColor from './AddColor'
+import PantoneConverter from './pantoneConverter'
+
+const dehydrateColor = c => ({
+  name: c['PANTONE Coated'],
+  hex: '#'+c['HEX']
+})
 
 const dummyColors = [
-  {hex: '#61BFAD', name: 'Medow Green'},
-  {hex: '#E13334', name: 'Passion red'},
-  {hex: '#F0CF61', name: 'Scrumbled yellow'},
-  {hex: '#F3C9DD', name: 'Innocent pink'}
-].map( ({hex}) => hex )
+  PantoneConverter.fromHex('#61BFAD'),
+  PantoneConverter.fromHex('#E13334'),
+  PantoneConverter.fromHex('#F0CF61'),
+  PantoneConverter.fromHex('#F3C9DD')
+].map(dehydrateColor)
 
 
 /**
@@ -37,8 +43,9 @@ class App extends React.Component {
   }
 
   handleAddColor(color) {
+    let closestPantone = PantoneConverter.fromHex(color)
     this.setState({
-      colors: [...this.state.colors, color],
+      colors: [...this.state.colors, dehydrateColor(closestPantone)],
       isColorPickerOpen: false
     })
   }
